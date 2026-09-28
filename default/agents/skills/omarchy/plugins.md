@@ -31,7 +31,7 @@ Text {
 }
 ```
 
-- When passing dynamic text to an Omarchy-owned component whose internal `Text` format cannot be controlled, use a documented markup-neutralizing helper and add a regression test. Prefer extending the shared component with a plain-text property when that is feasible.
+- When passing dynamic text to an Omarchy-owned component whose internal `Text` format the plugin cannot set, neutralize markup in the plugin first with a helper of its own, and add a regression test; Omarchy ships no such helper. Never edit the packaged component to add a plain-text option: that belongs in a pull request to Omarchy.
 - Bound and validate downloaded data before displaying or saving it: limit response and collection sizes, string lengths, identifiers, and timestamps.
 - Keep network access explicit. Use fixed HTTPS sources, timeouts, response-size limits, and validation. For periodic background refreshes, disclose the behavior and let users enable or disable it. Never execute downloaded content or interpolate untrusted values into shell commands.
 - Add regression coverage for markup-shaped input and every shared tooltip or notification sink that receives dynamic text.
